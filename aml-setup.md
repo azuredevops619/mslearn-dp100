@@ -19,7 +19,7 @@ To create the Azure Machine Learning workspace and a compute instance, you'll us
   - **File share**: type **default** 
   - Create the storage account. Wait for the storage to be created.
 5. This opens a Cloud Shell pane at the bottom of the portal. You need to Select **Bash** if not already done.  
-6. In the terminal, enter the following commands. You need to replace <...> in the first two lines with your **resource group name** & **an unique name for AML workspace 
+6. In the terminal, enter the following commands. You need to replace <...> in the first two lines with your **resource group name** & **an unique name for AML workspace**
 
     ```bash
     resourceGroupName=<Enter your resource group name here>
