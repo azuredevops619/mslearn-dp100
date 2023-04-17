@@ -138,7 +138,7 @@ Now that you've deployed a service, you can test it using some simple code. Firs
 1. Enter the following command to clone a Git repository containing notebooks, data, and other files to your workspace:
 
     ```bash
-    git clone https://github.com/MicrosoftLearning/mslearn-dp100 mslearn-dp100
+    git clone https://github.com/azuredevops619/mslearn-dp100.git mslearn-dp100
     ```
 
 1. In the **Notebooks** page, under **My files**, browse to the **/users/*your-user-name*/mslearn-dp100** folder where you cloned the notebook repository, and open the **Get AutoML Prediction** notebook.
