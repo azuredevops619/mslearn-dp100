@@ -76,7 +76,7 @@ A lot of data science and machine learning experimentation is performed by runni
 4. Enter the following command to clone a Git repository containing notebooks, data, and other files to your workspace:
 
     ```bash
-    git clone https://github.com/MicrosoftLearning/mslearn-dp100 mslearn-dp100
+    git clone https://github.com/azuredevops619/mslearn-dp100.git mslearn-dp100
     ```
 
 5. When the command has completed, in the **Files** pane, click **&#8635;** to refresh the view and verify that a new **/users/*your-user-name*/mslearn-dp100** folder has been created. This folder contains multiple **.ipynb** notebook files.
