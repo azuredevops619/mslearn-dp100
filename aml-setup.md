@@ -15,6 +15,7 @@ To create the Azure Machine Learning workspace and a compute instance, you'll us
 3. Click on the " Show advanced settings" option in the pop up that opened in the bottom of the screen.  
 4. In the Advanced settings page, give  
   - **Resource Group**: Select you existing resource group
+  - **Location**: eastus
   - **Storage account**: Create a new storage account by entering an unique name (should be in small letters)
   - **File share**: type **default** 
   - Create the storage account. Wait for the storage to be created.
