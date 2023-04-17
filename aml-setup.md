@@ -11,7 +11,7 @@ An Azure Machine Learning *workspace* provides a central place for managing all 
 To create the Azure Machine Learning workspace and a compute instance, you'll use the Azure CLI. All necessary commands are grouped in a Shell script for you to execute.
 
 1. In a browser, open the Azure portal at [portal.azure.com](https://portal.azure.com/?azure-portal=true), signing in with your Microsoft account.
-2. Select the \[>_] (*Cloud Shell*) button at the top of the page to the right of the search box.The first time you open the cloud shell, you will be asked to choose the type of shell you want to use (*Bash* or *PowerShell*). Select **Bash**.
+2. Select the \[>_] (*Cloud Shell*) button at the top of the page to the right of the search box. The first time you open the cloud shell, you will be asked to choose the type of shell you want to use (*Bash* or *PowerShell*). Select **Bash**.
 3. Click on the " Show advanced settings" option in the pop up that opened in the bottom of the screen.  
 4. In the Advanced settings page, give  
   - **Resource Group**: Select you existing resource group
