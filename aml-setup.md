@@ -13,9 +13,9 @@ To create the Azure Machine Learning workspace and a compute instance, you'll us
 1. In a browser, open the Azure portal at [portal.azure.com](https://portal.azure.com/?azure-portal=true), signing in with your Microsoft account.
 2. Select the \[>_] (*Cloud Shell*) button at the top of the page to the right of the search box. The first time you open the cloud shell, you will be asked to choose the type of shell you want to use (*Bash* or *PowerShell*). Select **Bash**.
 3. Click on the " Show advanced settings" option in the pop up that opened in the bottom of the screen.  
-4. In the Advanced settings page, give  
+4. In the Advanced settings page, give
+  - **Location**: eastus  
   - **Resource Group**: Select you existing resource group
-  - **Location**: eastus
   - **Storage account**: Create a new storage account by entering an unique name (should be in small letters)
   - **File share**: type **default** 
   - Create the storage account. Wait for the storage to be created.
