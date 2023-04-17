@@ -11,6 +11,55 @@ In this exercise, you'll use the visual interface for automated machine learning
 
 > **Note**: You can also use automated machine learning through the Azure Machine Learning SDK.
 
+## Before you start
+
+You'll need an [Azure subscription](https://azure.microsoft.com/free?azure-portal=true) in which you have administrative-level access.
+
+## Provision an Azure Machine Learning workspace
+
+An Azure Machine Learning *workspace* provides a central place for managing all resources and assets you need to train and manage your models. You can interact with the Azure Machine Learning workspace through the Studio, Python SDK, and Azure CLI. 
+
+### Create the workspace 
+
+To create the Azure Machine Learning workspace and a compute instance, you'll use the Azure CLI. All necessary commands are grouped in a Shell script for you to execute.
+
+1. In a browser, open the Azure portal at [portal.azure.com](https://portal.azure.com/?azure-portal=true), signing in with your Microsoft account.
+1. Select the \[>_] (*Cloud Shell*) button at the top of the page to the right of the search box. This opens a Cloud Shell pane at the bottom of the portal.
+1. The first time you open the cloud shell, you will be asked to choose the type of shell you want to use (*Bash* or *PowerShell*). Select **Bash**.
+1. If you are asked to create storage for your cloud shell, check that the correct subscription is specified and select **Create storage**. Wait for the storage to be created.
+1. In the terminal, enter the following commands to clone this repo:
+
+    ```bash
+    rm -r mslearn-dp100 -f
+    git clone https://github.com/MicrosoftLearning/mslearn-dp100 mslearn-dp100
+    ```
+
+1. After the repo has been cloned, enter the following commands to change to the folder for this lab and run the **setup.sh** script it contains:
+    
+    ```bash
+    cd mslearn-dp100
+    ./setup.sh
+    ```
+
+1. Wait for the script to complete - this typically takes around 5-10 minutes. 
+
+## Configure compute resources
+
+To use Azure Machine Learning designer, you require compute on which to run the model training experiment.
+
+1. Sign into [Azure Machine Learning studio](https://ml.azure.com?azure-portal=true) with the Microsoft credentials associated with your Azure subscription, and select your Azure Machine Learning workspace.
+2. In Azure Machine Learning studio, view the **Compute** page; and on the **Compute instances** tab, start your compute instance if it is not already running. You will use this compute instance to test your trained model.
+3. While the compute instance is starting, switch to the **Compute clusters** tab. If you don't already have an existing compute cluster, add a new compute cluster with the following settings. You will use this cluster to run the training pipeline.
+    - **Region**: *The same region as your workspace*
+    - **Virtual Machine priority**: Dedicated
+    - **Virtual Machine type**: CPU
+    - **Virtual Machine size**: Standard_DS11_v2
+    - **Compute name**: *enter a unique name*
+    - **Minimum number of nodes**: 0
+    - **Maximum number of nodes**: 2
+    - **Idle seconds before scale down**: 120
+    - **Enable SSH access**: Unselected
+
 ## Create a dataset
 
 Now that you have some compute resources that you can use to process data, you'll need a way to store and ingest the data to be processed.
