@@ -24,7 +24,7 @@ To create the Azure Machine Learning workspace and a compute instance, you'll us
 
     ```bash
     resourceGroupName=<Enter your Resource Group Name>
-    amlWorkspaceName=<Enter unique anyname here Like:shivam-aml-ws>
+    amlWorkspaceName=<Enter any unique name here Like:shivam-aml-ws>
 
     guid=$(cat /proc/sys/kernel/random/uuid)
     suffix=${guid//[-]/}
