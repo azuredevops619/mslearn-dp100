@@ -23,18 +23,31 @@ To create the Azure Machine Learning workspace and a compute instance, you'll us
 6. In the terminal, enter the following commands. You need to replace <...> in the first two lines with your **resource group name** & **an unique name for AML workspace**
 
     ```bash
-    resourceGroupName=<Enter your resource group name here>
-    amlWorkspaceName=<Enter name for aml workspace>
+resourceGroupName=<Enter your Resource Group Name>
+amlWorkspaceName=<Enter unique anyname here Like:shivam-aml-ws>
 
-    az ml workspace create --name $amlWorkspaceName -g $resourceGroupName
+guid=$(cat /proc/sys/kernel/random/uuid)
+suffix=${guid//[-]/}
+suffix=${suffix:0:10}
+ComputeName="ci${suffix}"
+LogAnalyticsName="log${suffix}"
+AppInsightName="app${suffix}"
+ComputeClustereName="cc${suffix}"
 
-    guid=$(cat /proc/sys/kernel/random/uuid)
-    suffix=${guid//[-]/}
-    suffix=${suffix:0:18}
+az config set extension.use_dynamic_install=yes_without_prompt
+az monitor log-analytics workspace create -g $resourceGroupName -n $LogAnalyticsName
 
-    ComputeName="ci${suffix}"
+az monitor log-analytics workspace get-schema --resource-group $resourceGroupName --workspace-name $LogAnalyticsName
 
-    az ml compute create --name ${ComputeName} --size STANDARD_DS11_V2 --type ComputeInstance -w $amlWorkspaceName -g $resourceGroupName
+subscriptionID=$(az account show --query id --output tsv)
+
+az monitor app-insights component create --app $AppInsightName --location eastus --kind web -g $resourceGroupName --workspace "/subscriptions/$subscriptionID/resourcegroups/$resourceGroupName/providers/microsoft.operationalinsights/workspaces/$LogAnalyticsName"
+
+az ml workspace create --name $amlWorkspaceName -g $resourceGroupName --application-insights "/subscriptions/$subscriptionID/resourceGroups/$resourceGroupName/providers/microsoft.insights/components/$AppInsightName"
+
+az ml compute create --name ${ComputeName} --size STANDARD_DS11_V2 --type ComputeInstance -w $amlWorkspaceName -g $resourceGroupName
+
+az ml compute create --name $ComputeClustereName --size Standard_DS11_v2 --min-instances 0 --max-instances 2 --type AmlCompute --resource-group $resourceGroupName --workspace-name $amlWorkspaceName 
  
     ```
 
